@@ -122,26 +122,68 @@ section { padding: 8rem 0; }
 .card-content { padding: 1.5rem; }
 .card-content h3 { font-size: 1.1rem; margin-bottom: 0.8rem; color: #003366; }
 
-/* Background & Skills Lists */
-.credentials-list, .skills-grid {
+/* Background & Credentials Layout */
+.credentials-list {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2.5rem;
+    margin-bottom: 4rem;
 }
 
-.cred-item h3, .skill-group h3 {
-    font-size: 1.15rem; color: #003366; margin-bottom: 1.2rem;
+.cred-item h3, .ai-credentials-container h3, .skill-group h3 {
+    font-size: 1.2rem; color: #003366; margin-bottom: 1.2rem;
     border-bottom: 1.5px solid #003366; display: inline-block;
 }
 
-.cred-item ul li, .mini-list li {
+.cred-item ul li {
     margin-bottom: 0.6rem; font-size: 0.95rem; list-style: none; position: relative; padding-left: 1.2rem;
 }
 
 .cred-item ul li::before { content: "・"; position: absolute; left: 0; color: #003366; }
-.mini-list li::before { content: "✓"; position: absolute; left: 0; color: #003366; font-weight: bold; }
 
-.subtitle { font-size: 0.8rem; color: #888; margin-bottom: 0.8rem; font-weight: bold; }
+/* AI Credentials Section */
+.ai-credentials-container {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #eee;
+}
+
+.ai-credentials-container .subtitle {
+    font-size: 0.85rem; color: #666; margin-bottom: 2rem; font-weight: bold;
+}
+
+.ai-credentials-layout {
+    display: flex; gap: 3rem; align-items: flex-start;
+}
+
+.badge-column { flex: 0 0 150px; }
+.badge-container { min-height: 270px; display: flex; justify-content: center; }
+
+.list-column { flex: 1; }
+
+.detailed-ai-list { list-style: none; padding: 0; }
+.detailed-ai-list li {
+    margin-bottom: 1.2rem; padding-left: 1.8rem; position: relative; line-height: 1.4;
+}
+
+.detailed-ai-list li::before {
+    content: "✓"; position: absolute; left: 0; top: 2px; color: #003366; font-weight: bold;
+}
+
+.detailed-ai-list .jp-context {
+    display: block; font-size: 0.85rem; color: #555; margin-bottom: 0.2rem; font-weight: 500;
+}
+
+.detailed-ai-list .en-title {
+    display: block; font-size: 0.95rem; color: #003366; font-weight: 400;
+}
+
+/* Skills Grid */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
 
 /* Contact */
 #contact { text-align: center; background: #fcfcfc; }
@@ -152,18 +194,7 @@ section { padding: 8rem 0; }
 }
 .btn:hover { background: #004a94; }
 .github-link { color: #333; font-weight: bold; }
-/* バッジ表示用の調整 */
-.badge-container {
-    margin: 1.5rem 0;
-    display: flex;
-    justify-content: flex-start; /* 左寄せ。中央なら center */
-    min-height: 270px; /* 読み込み前のガタつき防止 */
-}
 
-/* AIリストの微調整（バッジがあるため少し余裕を持たせる） */
-.mini-list {
-    margin-top: 1rem;
-}
 /* Animations */
 .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
 .fade-in.appear { opacity: 1; transform: translateY(0); }
@@ -175,4 +206,6 @@ footer { padding: 3rem 0; text-align: center; border-top: 1px solid #eee; font-s
 @media (max-width: 768px) {
     #hero h1 { font-size: 1.8rem; }
     .nav-links { display: none; }
+    .ai-credentials-layout { flex-direction: column; align-items: center; gap: 2rem; }
+    .list-column { width: 100%; }
 }
