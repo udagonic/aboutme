@@ -1,0 +1,179 @@
+
+/* Reset & Base */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+    background-color: #ffffff;
+    color: #333333;
+    line-height: 1.8;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+h1, h2, h3, .logo {
+    font-family: 'Noto Serif JP', serif;
+}
+
+/* Header */
+header {
+    width: 100%;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 1px solid #eee;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.logo { font-size: 1.2rem; font-weight: bold; color: #333; }
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 1.5rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover { color: #003366; }
+
+/* Sections */
+section { padding: 8rem 0; }
+.section-title {
+    font-size: 2rem;
+    margin-bottom: 4rem;
+    text-align: center;
+    color: #333;
+}
+
+/* Hero */
+#hero {
+    height: 85vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: #fcfcfc;
+}
+
+#hero h1 { font-size: 2.5rem; margin-bottom: 2rem; line-height: 1.4; }
+.name-label { color: #003366; font-weight: bold; letter-spacing: 0.2rem; margin-bottom: 1rem; text-transform: uppercase; }
+.sub-copy { max-width: 750px; margin: 0 auto; font-size: 1.1rem; color: #555; }
+
+/* Vision Grid */
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 3rem;
+}
+
+.vision-grid h3 { font-size: 1.2rem; margin-bottom: 1rem; color: #003366; }
+
+/* Portfolio Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2.5rem;
+}
+
+.portfolio-card {
+    background: #fff;
+    border-radius: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.portfolio-card:hover { transform: translateY(-8px); }
+
+.slider { position: relative; height: 210px; background: #f0f0f0; overflow: hidden; }
+
+.slides img {
+    width: 100%; height: 100%; object-fit: cover;
+    position: absolute; opacity: 0; transition: opacity 1s ease-in-out;
+}
+
+.slides img.active { opacity: 1; }
+
+.img-caption {
+    position: absolute; bottom: 0; width: 100%;
+    background: rgba(255,255,255,0.85);
+    font-size: 0.75rem; padding: 0.4rem 1rem; color: #444;
+}
+
+.card-content { padding: 1.5rem; }
+.card-content h3 { font-size: 1.1rem; margin-bottom: 0.8rem; color: #003366; }
+
+/* Background & Skills Lists */
+.credentials-list, .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2.5rem;
+}
+
+.cred-item h3, .skill-group h3 {
+    font-size: 1.15rem; color: #003366; margin-bottom: 1.2rem;
+    border-bottom: 1.5px solid #003366; display: inline-block;
+}
+
+.cred-item ul li, .mini-list li {
+    margin-bottom: 0.6rem; font-size: 0.95rem; list-style: none; position: relative; padding-left: 1.2rem;
+}
+
+.cred-item ul li::before { content: "・"; position: absolute; left: 0; color: #003366; }
+.mini-list li::before { content: "✓"; position: absolute; left: 0; color: #003366; font-weight: bold; }
+
+.subtitle { font-size: 0.8rem; color: #888; margin-bottom: 0.8rem; font-weight: bold; }
+
+/* Contact */
+#contact { text-align: center; background: #fcfcfc; }
+.contact-links { display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2rem; }
+.btn {
+    padding: 0.8rem 2.5rem; background: #003366; color: #fff;
+    text-decoration: none; border-radius: 2px; transition: background 0.3s;
+}
+.btn:hover { background: #004a94; }
+.github-link { color: #333; font-weight: bold; }
+/* バッジ表示用の調整 */
+.badge-container {
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: flex-start; /* 左寄せ。中央なら center */
+    min-height: 270px; /* 読み込み前のガタつき防止 */
+}
+
+/* AIリストの微調整（バッジがあるため少し余裕を持たせる） */
+.mini-list {
+    margin-top: 1rem;
+}
+/* Animations */
+.fade-in { opacity: 0; transform: translateY(30px); transition: opacity 1.2s ease-out, transform 1.2s ease-out; }
+.fade-in.appear { opacity: 1; transform: translateY(0); }
+
+/* Footer */
+footer { padding: 3rem 0; text-align: center; border-top: 1px solid #eee; font-size: 0.85rem; color: #888; }
+
+/* Mobile */
+@media (max-width: 768px) {
+    #hero h1 { font-size: 1.8rem; }
+    .nav-links { display: none; }
+}
